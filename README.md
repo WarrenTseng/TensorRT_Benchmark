@@ -32,6 +32,16 @@ jupyter lab --ip 0.0.0.0 --allow-root
 | Segmentation   | 1   | 1.96   | 1.84   | 2.64    | 6.26    | 3.19  | 0.039 |
 | Segmentation   | 4   | 2.19   | 2.16   | 10.08   | 22.59   | 10.32 | 0.141 |
 
+#### A2 - with 16GB RAM, 60 watt (40-60 configurable)
+| Task           | Batch Size | Native PyTorch </br> (imgs/sec) | Torch Script </br> (imgs/sec) | TensorRT-FP32 </br> (imgs/sec) | TensorRT-FP16 </br> (imgs/sec)| Improvement </br> (TRT v.s. PT) | Energy Efficiency </br>for TRT-FP16 </br> (throughputs/watt) |
+|  ------------- |:-------------:|:-------------:|:-------------:|:-------------:|:-------------:|:-------------:|:-------------:|
+| Classification | 32  |   |  |    |  |   |  |
+| Classification | 256 |   |  |   |  |  |  |
+| Detection      | 32  |  |       |   |  |   |  |
+| Detection      | 256 |   |       |   |  |   |  |
+| Segmentation   | 1   |     |    |      |     |   |  |
+| Segmentation   | 4   |     |    |     |    |   |  |
+
 #### L4 - with 24GB RAM, 72 watt
 | Task           | Batch Size | Native PyTorch </br> (imgs/sec) | Torch Script </br> (imgs/sec) | TensorRT-FP32 </br> (imgs/sec) | TensorRT-FP16 </br> (imgs/sec)| Improvement </br> (TRT v.s. PT) | Energy Efficiency </br>for TRT-FP16 </br> (throughputs/watt) |
 |  ------------- |:-------------:|:-------------:|:-------------:|:-------------:|:-------------:|:-------------:|:-------------:|
