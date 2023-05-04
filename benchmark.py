@@ -33,9 +33,29 @@ class NativeTorchBenchmark():
                 self.model(self.samples.to(self.device)).cpu()
         t2 = time.time()
         throughputs = self.batch_size*self.n_infers/(t2-t1)
-        print('Throughputs (Native PyTorch):', round(throughputs, 4))
-        
+        print('Throughputs:', round(throughputs, 4))
+
+class TorchScriptBenchmark(NativeTorchBenchmark):
     
+    def __init__(self,
+                 n_infers,
+                 batch_size,
+                 samples,
+                 model_arch,
+                 model_ckpt,
+                 device='cuda'):
+        '''
+        n_infers: no. of inference times
+        '''
+        self.n_infers = n_infers
+        self.batch_size = batch_size
+        self.samples = torch.Tensor(samples)
+        self.device = device
+        self.model = model_arch
+        self.model.load_state_dict(torch.load(model_ckpt))
+        self.model = torch.jit.script(self.model).to(self.device)
+
+
 class TensorRTBehcnmark():
     
     def __init__(self,
