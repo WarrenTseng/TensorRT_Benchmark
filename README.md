@@ -10,6 +10,6 @@ docker pull warrents/trt_benchmark:ngc_torch-23.04-py3
 ```
 2. Start the environment and jupyter lab
 ```
-docker run -it --rm -p 8888:8888 --gpus='"device=0"' warrents/trt_benchmark:ngc_torch-23.04-py3
+docker run -it --rm --shm-size=2g -p 8888:8888 --gpus='"device=0"' warrents/trt_benchmark:ngc_torch-23.04-py3
 jupyter lab --ip 0.0.0.0 --allow-root
 ```
