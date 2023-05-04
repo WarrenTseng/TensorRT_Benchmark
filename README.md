@@ -14,7 +14,7 @@ docker run -it --rm --shm-size=2g -p 8888:8888 --gpus='"device=0"' warrents/trt_
 jupyter lab --ip 0.0.0.0 --allow-root
 ```
 
-## Results - fixed batch size
+## Results
 #### GeForce RTX 3060 - with 12GB RAM, 170 watt
 | Task           | Batch Size | Native PyTorch </br> (imgs/sec) | TensorRT-FP32 </br> (imgs/sec) | TensorRT-FP16 </br> (imgs/sec)| Improvement </br> (TRT v.s. PT) | Energy Efficiency </br>for TRT-FP16 </br> (throughputs/watt) |
 |  ------------- |:-------------:|:-------------:|:-------------:|:-------------:|:-------------:|:-------------:|
