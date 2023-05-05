@@ -16,6 +16,33 @@ jupyter lab --ip 0.0.0.0 --allow-root
 
 ## Results
 
+### For Classification (DenseNet201, Batch Size=256)
+
+| GPU  | Torch Script </br> Throughputs (imgs/sec) | TensorRT-FP16 </br> Throughputs (imgs/sec) | Energy Efficiency </br> for TRT-FP16 </br> (throughputs/watt) |
+| :-------------: |:-------------:|:-------------:|:-------------:|
+| V100 - 16GB     | 463.76        | 3622.02       | 22.64         |
+| L4              | 333.11        | ***5140.12*** | ***71.39***   |
+| A6000           | ***806.12***  | 4210.68       | 14.04         |
+</br></br>
+### For Detection (Yolov5s, Batch Size=256)
+
+| GPU  | Native PyTorch </br> Throughputs (imgs/sec) | TensorRT-FP16 </br> Throughputs (imgs/sec) | Energy Efficiency </br> for TRT-FP16 </br> (throughputs/watt) |
+| :-------------: |:-------------:|:-------------:|:-------------:|
+| V100 - 16GB     | 532.92        | 4085.98       | 25.54         |
+| L4              | ***925.46***  | ***6698.22*** | ***93.03***   |
+| A6000           | 904.82        | 4603.43       | 15.34         |
+</br></br>
+### For Segmentation (SegResNet, Batch Size=4)
+
+| GPU  | Native PyTorch </br> Throughputs (imgs/sec) | TensorRT-FP16 </br> Throughputs (imgs/sec) | Energy Efficiency </br> for TRT-FP16 </br> (throughputs/watt) |
+| :-------------: |:-------------:|:-------------:|:-------------:|
+| V100 - 16GB     | 2.16          | 22.59         | 0.141         |
+| L4              | 2.41          | 19.75         | ***0.274***   |
+| A6000           | ***4.37***    | ***29.62***   | 0.099         |
+| A6000 (bs=128)  | OOM           | *138.50       | *0.462        |
+</br></br>
+
+### Details
 #### V100 - with 16GB RAM, 160 watt
 | Task           | Batch Size | Native PyTorch </br> (imgs/sec) | Torch Script </br> (imgs/sec) |TensorRT-FP32 </br> (imgs/sec) | TensorRT-FP16 </br> (imgs/sec)| Improvement </br> (TRT v.s. PT) | Energy Efficiency </br>for TRT-FP16 </br> (throughputs/watt) |
 |:-------------:|:-------------:|:-------------:|:-------------:|:-------------:|:-------------:|:-------------:|:-------------:|
