@@ -56,6 +56,7 @@ V100 - with 16GB RAM, 160 watt
 | Segmentation </br> (SegResNet)     | 1   | 1.96   | 1.84   | 2.64    | 6.26    | 3.19  | 0.039 |
 | Segmentation </br> (SegResNet)     | 4   | 2.19   | 2.16   | 10.08   | 22.59   | 10.32 | 0.141 |
 
+</br>
 A2 - with 16GB RAM, 60 watt (40-60 watt configurable)
 | Task           | Batch Size | Native PyTorch </br> (imgs/sec) | Torch Script </br> (imgs/sec) | TensorRT-FP32 </br> (imgs/sec) | TensorRT-FP16 </br> (imgs/sec)| Improvement </br> (TRT v.s. PT) | Energy Efficiency </br>for TRT-FP16 </br> (throughputs/watt) |
 |  ------------- |:-------------:|:-------------:|:-------------:|:-------------:|:-------------:|:-------------:|:-------------:|
@@ -66,6 +67,7 @@ A2 - with 16GB RAM, 60 watt (40-60 watt configurable)
 | Segmentation </br> (SegResNet)     | 1   |     |    |      |     |   |  |
 | Segmentation </br> (SegResNet)     | 4   |     |    |     |    |   |  |
 
+</br>
 L4 - with 24GB RAM, 72 watt
 | Task           | Batch Size | Native PyTorch </br> (imgs/sec) | Torch Script </br> (imgs/sec) | TensorRT-FP32 </br> (imgs/sec) | TensorRT-FP16 </br> (imgs/sec)| Improvement </br> (TRT v.s. PT) | Energy Efficiency </br>for TRT-FP16 </br> (throughputs/watt) |
 |  ------------- |:-------------:|:-------------:|:-------------:|:-------------:|:-------------:|:-------------:|:-------------:|
@@ -76,6 +78,7 @@ L4 - with 24GB RAM, 72 watt
 | Segmentation </br> (SegResNet)     | 1   | 2.08    | 2.07   | 3.07     | 5.19    | 2.50  | 0.072 |
 | Segmentation </br> (SegResNet)     | 4   | 2.41    | 2.41   | 11.88    | 19.75   | 8.20  | 0.274 |
 
+</br>
 A6000 - with 48GB RAM, 300 watt
 | Task           | Batch Size | Native PyTorch </br> (imgs/sec) | Torch Script </br> (imgs/sec) | TensorRT-FP32 </br> (imgs/sec) | TensorRT-FP16 </br> (imgs/sec)| Improvement </br> (TRT v.s. PT) | Energy Efficiency </br>for TRT-FP16 </br> (throughputs/watt) |
 |  ------------- |:-------------:|:-------------:|:-------------:|:-------------:|:-------------:|:-------------:|:-------------:|
