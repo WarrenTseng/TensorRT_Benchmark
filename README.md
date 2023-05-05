@@ -15,12 +15,6 @@ jupyter lab --ip 0.0.0.0 --allow-root
 ```
 
 ## Results
-#### GeForce RTX 3060 - with 12GB RAM, 170 watt
-| Task           | Batch Size | Native PyTorch </br> (imgs/sec) | TensorRT-FP32 </br> (imgs/sec) | TensorRT-FP16 </br> (imgs/sec)| Improvement </br> (TRT v.s. PT) | Energy Efficiency </br>for TRT-FP16 </br> (throughputs/watt) |
-|  ------------- |:-------------:|:-------------:|:-------------:|:-------------:|:-------------:|:-------------:|
-| Classification | 32 | 249.58 | 436.52  | 828.77  | 3.32 | 4.88  |
-| Detection      | 32 | 673.28 | 1158.52 | 1722.24 | 2.56 | 10.13 |
-| Segmentation   | 1  | 1.77   | 2.53    | 4.54    | 2.56 | 0.027 |
 
 #### V100 - with 16GB RAM, 160 watt
 | Task           | Batch Size | Native PyTorch </br> (imgs/sec) | Torch Script </br> (imgs/sec) |TensorRT-FP32 </br> (imgs/sec) | TensorRT-FP16 </br> (imgs/sec)| Improvement </br> (TRT v.s. PT) | Energy Efficiency </br>for TRT-FP16 </br> (throughputs/watt) |
