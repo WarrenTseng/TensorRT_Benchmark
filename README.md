@@ -36,7 +36,7 @@ jupyter lab --ip 0.0.0.0 --allow-root
 </br></br>
 ### For Segmentation (SegResNet, Batch Size=4)
 
-| GPU  | Native PyTorch </br> Throughputs (imgs/sec) | TensorRT-FP16 </br> Throughputs (imgs/sec) | Energy Efficiency </br> for TRT-FP16 </br> (throughputs/watt) |
+| GPU  | Torch Script </br> Throughputs (imgs/sec) | TensorRT-FP16 </br> Throughputs (imgs/sec) | Energy Efficiency </br> for TRT-FP16 </br> (throughputs/watt) |
 | :-------------: |:-------------:|:-------------:|:-------------:|
 | V100 - 16GB     | 2.16          | 22.59         | 0.141         |
 | L4              | 2.41          | 19.75         | ***0.274***   |
