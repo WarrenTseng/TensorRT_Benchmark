@@ -14,7 +14,8 @@ class NativeTorchBenchmark():
                  samples,
                  model_arch,
                  model_ckpt,
-                 device='cuda'):
+                 device='cuda',
+                 warmup=True):
         '''
         n_infers: no. of inference times
         '''
@@ -22,13 +23,19 @@ class NativeTorchBenchmark():
         self.batch_size = batch_size
         self.samples = torch.Tensor(samples)
         self.device = device
+        self.warmup = warmup
         self.model = model_arch.to(self.device)
         self.model.load_state_dict(torch.load(model_ckpt))
         
     def benchmark(self):
         self.model.eval()
-        t1 = time.time()
         with torch.no_grad():
+            if self.warmup:
+                print('Warmup...')
+                for i in range(5):
+                    self.model(self.samples.to(self.device)).cpu()
+            print('Start benchmarking')
+            t1 = time.time()
             for i in tqdm(range(self.n_infers)):
                 self.model(self.samples.to(self.device)).cpu()
         t2 = time.time()
@@ -43,7 +50,8 @@ class TorchScriptBenchmark(NativeTorchBenchmark):
                  samples,
                  model_arch,
                  model_ckpt,
-                 device='cuda'):
+                 device='cuda',
+                 warmup=True):
         '''
         n_infers: no. of inference times
         '''
@@ -51,6 +59,7 @@ class TorchScriptBenchmark(NativeTorchBenchmark):
         self.batch_size = batch_size
         self.samples = torch.Tensor(samples)
         self.device = device
+        self.warmup = warmup
         self.model = model_arch
         self.model.load_state_dict(torch.load(model_ckpt))
         self.model = torch.jit.script(self.model).to(self.device)
@@ -62,12 +71,14 @@ class TensorRTBehcnmark():
                  n_infers,
                  batch_size,
                  samples,
-                 engine_path):
+                 engine_path,
+                 warmup=True):
         
         self.engine_path = engine_path
         self.n_infers = n_infers
         self.batch_size = batch_size
         self.samples = samples
+        self.warmup = warmup
         
     def TRT_setup(self, engine_path):
         TRT_LOGGER = trt.Logger()
@@ -112,6 +123,11 @@ class TensorRTBehcnmark():
     
     def benchmark(self):
         context, input_buffer, input_memory, output_buffer, output_memory, bindings = self.TRT_setup(self.engine_path)
+        if self.warmup:
+            print('Warmup...')
+            for i in range(5):
+                pred = self.infer(context, input_buffer, input_memory, output_buffer, output_memory, bindings)
+        print('Start benchmarking')
         t1 = time.time()
         for i in tqdm(range(self.n_infers)):
             pred = self.infer(context, input_buffer, input_memory, output_buffer, output_memory, bindings)
