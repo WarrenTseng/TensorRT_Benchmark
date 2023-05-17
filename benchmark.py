@@ -4,6 +4,7 @@ import pycuda.autoinit
 import numpy as np
 import time
 import torch
+import torch_tensorrt
 from tqdm import tqdm
 
 class NativeTorchBenchmark():
@@ -64,6 +65,24 @@ class TorchScriptBenchmark(NativeTorchBenchmark):
         self.model.load_state_dict(torch.load(model_ckpt))
         self.model = torch.jit.script(self.model).to(self.device)
 
+class TorchTensorRTBenchmark(NativeTorchBenchmark):
+    
+    def __init__(self,
+                 n_infers,
+                 batch_size,
+                 samples,
+                 model_path,
+                 device='cuda',
+                 warmup=True):
+        '''
+        n_infers: no. of inference times
+        '''
+        self.n_infers = n_infers
+        self.batch_size = batch_size
+        self.samples = torch.Tensor(samples).half()
+        self.device = device
+        self.warmup = warmup
+        self.model = torch.jit.load(model_path)
 
 class TensorRTBehcnmark():
     
