@@ -107,3 +107,17 @@ A6000 - with 48GB RAM, 300 watt
 | Segmentation </br> (SegResNet)     | 16  | OOM     | 4.66   | 58.60     | 75.74   | -     | 0.252 |
 | Segmentation </br> (SegResNet)     | 32  | OOM     | OOM    | 85.01     | 102.35  | -     | 0.341 |
 | Segmentation </br> (SegResNet)     | 128 | OOM     | OOM    | 129.05    | 138.50  | -     | 0.462 |
+
+</br>
+
+A100 - with 80GB RAM, 300 watt 
+| Task           | Batch Size | Native PyTorch </br> (imgs/sec) | Torch Script </br> (imgs/sec) | TensorRT-FP32 </br> (imgs/sec) | TensorRT-FP16 </br> (imgs/sec)| Improvement </br> (TRT v.s. PT) | Energy Efficiency </br>for TRT-FP16 </br> (throughputs/watt) |
+|  ------------- |:-------------:|:-------------:|:-------------:|:-------------:|:-------------:|:-------------:|:-------------:|
+| Classification </br> (DenseNet201) | 32  | 1045.16 | 1330.15 | 1679.23  | 2731.07  |  2.61 | 9.10  |
+| Classification </br> (DenseNet201) | 256 | 1203.91 | 1544.29 | 6986.50  | 8724.57  | 7.25  | 29.08 |
+| Detection </br> (Yolov5s)          | 32  | 1597.37 |   -     | 4438.20  | 5391.15  | 3.38  | 17.97 |
+| Detection </br> (Yolov5s)          | 256 | 1672.41 |   -     | 9891.63  | 10981.39 | 6.57  | 36.60 |
+| Segmentation </br> (SegResNet)     | 1   |   3.06  |  3.06   |  6.44    | 9.09     | 2.97  | 0.030 |
+| Segmentation </br> (SegResNet)     | 4   |   4.52  |  4.52   |  24.21   | 33.41    | 7.39  | 0.111 |
+| Segmentation </br> (SegResNet)     | 128 |  OOM    |  OOM    | 269.74   | 298.26   | -     | 0.994 |
+| Segmentation </br> (SegResNet)     | 256 |  OOM    |  OOM    | 322.82   | 342.99   | -     | 1.143 |
