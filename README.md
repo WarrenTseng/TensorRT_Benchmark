@@ -58,6 +58,18 @@ V100 - with 16GB RAM, 160 watt
 
 </br>
 
+T4 - with 16GB RAM, 70 watt
+| Task           | Batch Size | Native PyTorch </br> (imgs/sec) | Torch Script </br> (imgs/sec) | TensorRT-FP32 </br> (imgs/sec) | TensorRT-FP16 </br> (imgs/sec)| Improvement </br> (TRT v.s. PT) | Energy Efficiency </br>for TRT-FP16 </br> (throughputs/watt) |
+|  ------------- |:-------------:|:-------------:|:-------------:|:-------------:|:-------------:|:-------------:|:-------------:|
+| Classification </br> (DenseNet201) | 32  |   |  |    |  |   |  |
+| Classification </br> (DenseNet201) | 256 |   |  |   |  |  |  |
+| Detection </br> (Yolov5s)          | 32  |  |       |   |  |   |  |
+| Detection </br> (Yolov5s)          | 256 |   |       |   |  |   |  |
+| Segmentation </br> (SegResNet)     | 1   |     |    |      |     |   |  |
+| Segmentation </br> (SegResNet)     | 4   |     |    |     |    |   |  |
+
+</br>
+
 A2 - with 16GB RAM, 60 watt (40-60 watt configurable)
 | Task           | Batch Size | Native PyTorch </br> (imgs/sec) | Torch Script </br> (imgs/sec) | TensorRT-FP32 </br> (imgs/sec) | TensorRT-FP16 </br> (imgs/sec)| Improvement </br> (TRT v.s. PT) | Energy Efficiency </br>for TRT-FP16 </br> (throughputs/watt) |
 |  ------------- |:-------------:|:-------------:|:-------------:|:-------------:|:-------------:|:-------------:|:-------------:|
@@ -70,7 +82,7 @@ A2 - with 16GB RAM, 60 watt (40-60 watt configurable)
 
 </br>
 
-L4 - with 24GB RAM, 72 watt
+L4 - with 24GB RAM, 72 watt (40-72 watt configurable)
 | Task           | Batch Size | Native PyTorch </br> (imgs/sec) | Torch Script </br> (imgs/sec) | TensorRT-FP32 </br> (imgs/sec) | TensorRT-FP16 </br> (imgs/sec)| Improvement </br> (TRT v.s. PT) | Energy Efficiency </br>for TRT-FP16 </br> (throughputs/watt) |
 |  ------------- |:-------------:|:-------------:|:-------------:|:-------------:|:-------------:|:-------------:|:-------------:|
 | Classification </br> (DenseNet201) | 32  | 313.77  | 410.30 | 590.43   | 1351.51 | 4.31  | 18.77 |
