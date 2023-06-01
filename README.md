@@ -105,7 +105,6 @@ A6000 - with 48GB RAM, 300 watt
 | Segmentation </br> (SegResNet)     | 4   | 4.39    | 4.37   | 20.38     | 29.62   | 6.75  | 0.099 |
 | Segmentation </br> (SegResNet)     | 8   | 4.58    | 4.56   | 36.06     | 49.98   | 10.91 | 0.167 |
 | Segmentation </br> (SegResNet)     | 16  | OOM     | 4.66   | 58.60     | 75.74   | -     | 0.252 |
-| Segmentation </br> (SegResNet)     | 32  | OOM     | OOM    | 85.01     | 102.35  | -     | 0.341 |
 | Segmentation </br> (SegResNet)     | 128 | OOM     | OOM    | 129.05    | 138.50  | -     | 0.462 |
 
 </br>
