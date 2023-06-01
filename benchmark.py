@@ -41,7 +41,9 @@ class NativeTorchBenchmark():
                 self.model(self.samples.to(self.device)).cpu()
         t2 = time.time()
         throughputs = self.batch_size*self.n_infers/(t2-t1)
-        print('Throughputs:', round(throughputs, 4))
+        latency = (t2-t1)/self.n_infers*1000
+        print('Throughputs:', round(throughputs, 4), 'imgs/sec')
+        print('Latency:', round(latency, 4), 'ms')
 
 class TorchScriptBenchmark(NativeTorchBenchmark):
     
@@ -152,4 +154,6 @@ class TensorRTBehcnmark():
             pred = self.infer(context, input_buffer, input_memory, output_buffer, output_memory, bindings)
         t2 = time.time()
         throughputs = self.batch_size*self.n_infers/(t2-t1)
-        print('Throughputs:', round(throughputs, 4))
+        latency = (t2-t1)/self.n_infers*1000
+        print('Throughputs:', round(throughputs, 4), 'imgs/sec')
+        print('Latency:', round(latency, 4), 'ms')
