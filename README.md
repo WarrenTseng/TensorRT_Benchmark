@@ -39,14 +39,14 @@ To compare TorchScript with TensorRT in Triton, we need the environments as belo
   - Client: nvcr.io/nvidia/tritonserver:23.04-py3-sdk 
 
 Please follow the instructions below to start the testing environment:
-1. **Pull the docker images**:
+### 1. **Pull the docker images**:
 ```
 docker pull nvcr.io/nvidia/pytorch:23.04-py3
 docker pull nvcr.io/nvidia/tritonserver:23.04-py3
 docker pull nvcr.io/nvidia/tritonserver:23.04-py3-sdk
 ```
 
-2. **Preparing the models and Triton configs**:
+### 2. **Preparing the models and Triton configs**:
   - Prepare the folders and clone this repo:
   ```
   TRITONPATH = /PATH/AS/TRITON/REPO
@@ -69,12 +69,12 @@ docker pull nvcr.io/nvidia/tritonserver:23.04-py3-sdk
   - <a href="https://github.com/WarrenTseng/TensorRT_Benchmark/blob/main/tensorrt_with_triton/preparing/Preparing_Models.ipynb">Preparing models</a>
   - <a href="https://github.com/WarrenTseng/TensorRT_Benchmark/blob/main/tensorrt_with_triton/preparing/Preparing_Triton.ipynb">Preparing Triton configs</a>
  
-3. **Start Triton Inference Server**:
+### 3. **Start Triton Inference Server**:
 ```
 docker run -it --rm -p 8000:8000 -p 8001:8001 -p 8002:8002 --gpus='"device=0"' -v $TRITONPATH:/repo nvcr.io/nvidia/tritonserver:23.04-py3 tritonserver --model-store /repo
 ```
  
-4. **Triton client and inference**:
+### 4. **Triton client and inference**:
   - Run the environment:
   ```
   docker run -it --rm -p 8889:8888 -v $SRCPATH/TensorRT_Benchmark/tensorrt_with_triton/client:/ws -w /ws nvcr.io/nvidia/tritonserver:23.04-py3-sdk
