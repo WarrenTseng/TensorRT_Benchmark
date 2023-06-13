@@ -81,7 +81,7 @@ docker run -it --rm -p 8000:8000 -p 8001:8001 -p 8002:8002 --gpus='"device=0"' -
   ```
   - Install the requirements (for visualization)
   ```
-  pip install -r requirements
+  pip install -r requirements.txt
   ```
   - Start jupyter lab
   ```
