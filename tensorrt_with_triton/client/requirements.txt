@@ -1,1 +1,4 @@
 scikit-image
+jupyter
+notebook
+jupyterlab
