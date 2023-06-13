@@ -63,7 +63,7 @@ docker pull nvcr.io/nvidia/tritonserver:23.04-py3-sdk
   docker run -it --rm --shm-size=2g -p 8888:8888 --gpus='"device=0"' -v $TRITONPATH:/repo -v $SRCPATH/TensorRT_Benchmark/tensorrt_with_triton/preparing:/ws -w /ws nvcr.io/nvidia/pytorch:23.04-py3
   ```
   - <a href="https://github.com/WarrenTseng/TensorRT_Benchmark/blob/main/tensorrt_with_triton/preparing/Preparing_Models.ipynb">Preparing models</a>
-  - <a href="">Preparing Triton configs</a>
+  - <a href="https://github.com/WarrenTseng/TensorRT_Benchmark/blob/main/tensorrt_with_triton/preparing/Preparing_Triton.ipynb">Preparing Triton configs</a>
  
 3. **Start Triton Inference Server**:
 ```
@@ -83,6 +83,6 @@ docker run -it --rm -p 8000:8000 -p 8001:8001 -p 8002:8002 --gpus='"device=0"' -
   ```
   jupyter lab --ip 0.0.0.0 --allow-root
   ```
-  - Triton Client SDK
+  - <a href="https://github.com/WarrenTseng/TensorRT_Benchmark/blob/main/tensorrt_with_triton/client/Client_Inference.ipynb">Triton Client SDK</a>
     -  Inference
     -  Performance Analyzer
