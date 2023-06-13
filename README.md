@@ -43,11 +43,26 @@ docker pull nvcr.io/nvidia/tritonserver:23.04-py3
 docker pull nvcr.io/nvidia/tritonserver:23.04-py3-sdk
 ```
 2. Preparing the models and Triton configs:
-  2.1. Run the environment:
+  -  Run the environment:
   ```
-  docker run -it --rm --shm-size=2g -p 8888:8888 --gpus='"device=0"' -v /PATH/AS/TRITON/REPO:/repo nvcr.io/nvidia/pytorch:23.04-py3
+  TRITONPATH = /PATH/AS/TRITON/REPO
+  SRCPATH = /PATH/AS/HOST/SRC
+  mkdir $TRITONPATH
+  mkdir $SRCPATH
+  cd $SRCPATH
+  git clone https://github.com/WarrenTseng/TensorRT_Benchmark
+  cd TensorRT_Benchmark/tensorrt_with_triton/preparing
+  mkdir models
+  docker run -it --rm --shm-size=2g -p 8888:8888 --gpus='"device=0"' -v $TRITONPATH:/repo -v $SRCPATH/TensorRT_Benchmark/tensorrt_with_triton/preparing:/ws -w /ws nvcr.io/nvidia/pytorch:23.04-py3
   ```
-  2.2 
+  - Preparing models
+  - Preparing Triton configs
+3. Start Triton Inference Server:
+```
+docker run -it --rm -p 8000:8000 -p 8001:8001 -p 8002:8002 --gpus='"device=0"' -v /PATH/AS/TRITON/REPO:/repo nvcr.io/nvidia/tritonserver:23.04-py3 tritonserver --model-store /repo
+```
+4. Start Triton client and inference
+  - Run the environment:
+```
 
-
-
+```
