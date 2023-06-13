@@ -3,7 +3,7 @@
 "<a href="https://developer.nvidia.com/nvidia-triton-inference-server">**Triton Inference Server**</a> is an open source inference serving software that streamlines AI inferencing. Triton enables teams to deploy any AI model from multiple deep learning and machine learning frameworks, including TensorRT, TensorFlow, PyTorch, ONNX, OpenVINO, Python, RAPIDS FIL, and more. Triton supports inference across cloud, data center,edge and embedded devices on NVIDIA GPUs, x86 and ARM CPU, or AWS Inferentia. Triton delivers optimized performance for many query types, including real time, batched, ensembles and audio/video streaming." </br>
 
 
-### TensorRT Benchmark
+## TensorRT Benchmark
 These experimets are based on <a href="https://catalog.ngc.nvidia.com/orgs/nvidia/containers/pytorch">nvcr.io/nvidia/pytorch:23.04-py3</a> docker image. </br>
 
 Please follow the instructions below to start the testing environment:
@@ -27,7 +27,7 @@ jupyter lab --ip 0.0.0.0 --allow-root
   - Detection
   - Segmentation
 
-### TensorRT with Triton Inference Server
+## TensorRT with Triton Inference Server
 To compare TorchScript with TensorRT in Triton, we need the environments as below:
 - PyTorch: https://catalog.ngc.nvidia.com/orgs/nvidia/containers/pytorch  
   - nvcr.io/nvidia/pytorch:23.04-py3
