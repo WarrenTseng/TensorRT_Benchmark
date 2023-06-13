@@ -26,7 +26,7 @@ jupyter lab --ip 0.0.0.0 --allow-root
 ```
 
 4. Benchmarking:
-  - Classification
+  - <a href="https://github.com/WarrenTseng/TensorRT_Benchmark/blob/main/tensorrt_benchmark/Classification.ipynb">Classification</a>
   - Detection
   - Segmentation
 
