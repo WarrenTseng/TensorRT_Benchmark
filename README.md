@@ -27,8 +27,8 @@ jupyter lab --ip 0.0.0.0 --allow-root
 
 4. Benchmarking:
   - <a href="https://github.com/WarrenTseng/TensorRT_Benchmark/blob/main/tensorrt_benchmark/Classification.ipynb">Classification</a>
-  - Detection
-  - Segmentation
+  - <a href="https://github.com/WarrenTseng/TensorRT_Benchmark/blob/main/tensorrt_benchmark/Detection.ipynb">Detection</a>
+  - <a href="https://github.com/WarrenTseng/TensorRT_Benchmark/blob/main/tensorrt_benchmark/Segmentation.ipynb">Segmentation</a>
 
 ## TensorRT with Triton Inference Server
 To compare TorchScript with TensorRT in Triton, we need the environments as below:
