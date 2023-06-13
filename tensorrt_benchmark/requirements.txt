@@ -1,0 +1,9 @@
+monai
+pycuda 
+einops 
+seaborn 
+ipywidgets 
+widgetsnbextension 
+pandas-profiling 
+ultralytics
+scikit-image
